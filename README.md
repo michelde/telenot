@@ -8,9 +8,9 @@ As the Telenot KNX Gateway is quite expensive, I started research for another so
 
 ## Run
 You can either run the program using your local node.ja version or run it using docker. For Docker you need to build the docker image using
-    docker build -t michelmu/telenot-nodejs .
+`docker build -t michelmu/telenot-nodejs .`
 afterwards you can start the container using 
-    docker run -p 49160:8080 -e LOG_LEVEL="info" --name telenot-nodejs --restart=always -d michelmu/telenot-nodejs
+`docker run -p 49160:8080 -e LOG_LEVEL="info" --name telenot-nodejs --restart=always -d michelmu/telenot-nodejs`
 Posible log levels are ["error", "warn", "info", "verbose", "debug", "silly"]
 
 ## Hardware
