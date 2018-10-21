@@ -11,6 +11,7 @@ afterwards you can start the container using
     docker run --name telenot-nodejs --restart=always -d michelmu/telenot-nodejs
 
 You can pass some config variables also as environment variables:
+
 |PARAMETER       | Description                             |
 |----------------|-----------------------------------------|
 |MQTTHOST        | name or ip for the mqtt broker          |
