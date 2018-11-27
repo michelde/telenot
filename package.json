@@ -16,14 +16,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "hex-to-binary": "^1.0.1",
-    "mqtt": "^2.18.0",
+    "mqtt": "^2.18.8",
     "standard": "^11.0.1",
-    "winston": "^3.0.0"
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "log": "^1.4.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.7"
   }
 }
