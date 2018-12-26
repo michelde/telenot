@@ -11,13 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://diskstation.local:3000/michel/TELENOT_NODEJS.git"
+    "url": "https://github.com/michelde/telenot.git"
   },
-  "author": "",
+  "author": "Michel Munzert",
   "license": "ISC",
   "dependencies": {
+    "events": "^3.0.0",
     "express": "^4.16.4",
     "hex-to-binary": "^1.0.1",
+    "lodash": "^4.17.11",
     "mqtt": "^2.18.8",
     "standard": "^11.0.1",
     "winston": "^3.1.0"

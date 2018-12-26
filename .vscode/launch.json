@@ -17,7 +17,7 @@
           "env": {
               "NODE_ENV": "development",
               "LOG_LEVEL": "info",
-              "MQTTHOST": "mqtt://vh-mqtt.home",
+              "MQTTHOST": "vh-mqtt.home",
               "MQTTPORT": "1883",
               "TELNETHOST": "192.168.10.94",
               "TELNETPORT": "8234"

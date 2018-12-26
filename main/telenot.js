@@ -9,7 +9,7 @@ const MELGEGRUPPEN = config.Telenot.Meldegruppen
 module.exports = class Telenot {
   constructor (logger, mqttHandler) {
     this.logger = logger
-    this.mqttClient = mqttHandler.mqttClient
+    this.mqttClient = mqttHandler
     return this
   }
 

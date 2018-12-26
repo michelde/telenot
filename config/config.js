@@ -10,6 +10,16 @@ const config = {
       port: process.env.TELNETPORT
     }
   },
+  Homie: {
+    name: 'Telenot Device',
+    device_id: 'telenot-device',
+    mqtt: {
+      host: process.env.MQTTHOST,
+      port: process.env.MQTTPORT,
+      base_topic: 'homie/',
+      auth: false
+    }
+  },
   Telenot: {
     Meldebereiche: [
       { key: 1, name: 'Fenster KG HWR', topic: 'openhab/alarm/mb/fenster_kg_hwr', value: null },

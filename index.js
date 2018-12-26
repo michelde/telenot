@@ -1,9 +1,10 @@
 'use strict'
 const SocketHandler = require('./main/socketHandler')
-const MqttHandler = require('./main/mqttHandler')
+const HomieHandler = require('./main/homieHandler')
 const Telenot = require('./main/telenot')
 const logHandler = require('./util/logger')
 var express = require('express')
+
 var app = express()
 var logger
 
@@ -24,8 +25,8 @@ function init () {
 }
 
 function run () {
-  const mqttHandler = new MqttHandler(logger)
-  const telenot = new Telenot(logger, mqttHandler)
+  const homieMqtt = new HomieHandler(logger)
+  const telenot = new Telenot(logger, homieMqtt)
   const socketConnection = new SocketHandler(logger, telenot)
 }
 
