@@ -24,11 +24,11 @@ module.exports = class Telenot {
         // save new values
         this.logger.debug('New Value: ' + telenotBinary)
         MELDEBEREICHE[index].value = element
-        if (this.mqttClient.connected) {
-          this.mqttClient.publish(MELDEBEREICHE[index].topic, utilFunc.mapBinaryValue(MELDEBEREICHE[index].value))
+        if (this.mqttClient.homieDevice.isConnected) {
+          this.mqttClient.homeNodeMb.setProperty(MELDEBEREICHE[index].key).send(utilFunc.mapBinaryValue(MELDEBEREICHE[index].value));
           this.logger.verbose('Publish change for Meldebereich: ' + MELDEBEREICHE[index].name + ' value: ' + utilFunc.mapBinaryValue(MELDEBEREICHE[index].value))
         } else {
-          this.logger.debug('Cant publish state as Mqtt not connected: ' + MELDEBEREICHE[index].topic)
+          this.logger.debug('Cant publish state as Mqtt not connected: ' + MELDEBEREICHE[index].key)
         }
       }
     }
@@ -46,11 +46,11 @@ module.exports = class Telenot {
       if (MELGEGRUPPEN[index].value !== element && MELGEGRUPPEN[index].name !== '') {
         // save new values
         MELGEGRUPPEN[index].value = element
-        if (this.mqttClient.connected) {
-          this.mqttClient.publish(MELGEGRUPPEN[index].topic, utilFunc.mapBinaryValue(MELGEGRUPPEN[index].value))
+        if (this.mqttClient.homieDevice.isConnected) {
+          this.mqttClient.homeNodeMg.setProperty(MELGEGRUPPEN[index].key).send(utilFunc.mapBinaryValue(MELGEGRUPPEN[index].value));
           this.logger.verbose('Publish change for Meldegruppe: ' + MELGEGRUPPEN[index].name + ' value: ' + utilFunc.mapBinaryValue(MELGEGRUPPEN[index].value))
         } else {
-          this.logger.debug('Cant publish state as Mqtt not connected: ' + MELGEGRUPPEN[index].topic)
+          this.logger.debug('Cant publish state as Mqtt not connected: ' + MELGEGRUPPEN[index].key)
         }
       }
     }

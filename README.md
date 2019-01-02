@@ -2,7 +2,7 @@
 Program to read the states for several contacts from a Telenot alarm system using the GMS-Protcol.
 
 ## Updates
-- 2018-12-26: added [Homie convention implementation](https://homieiot.github.io/)to detect the mqtt-topics automatically by [openhab using add-on](https://www.openhab.org/addons/bindings/mqtt.generic/)
+- 2018-12-26: added [Homie convention implementation](https://homieiot.github.io/) to detect the mqtt-topics automatically by [openhab using add-on](https://www.openhab.org/addons/bindings/mqtt.generic/)
 
 ## Idea
 As the Telenot KNX Gateway is quite expensive, I started research for another solution. Some people already got a solution working for Loxone, which I took as a reference. Then I started to implement a solution in Python which was working but caused high CPU usage running as a docker container (see python branch). So I decided to implement it in Javascript using node.js. This is my first Javascript project so it might not follow best practices. I'm welcome for tips / best-practices.

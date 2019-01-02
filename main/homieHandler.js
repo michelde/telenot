@@ -14,13 +14,13 @@ module.exports = class MqttHandler {
 
     // add properties
     config.Telenot.Meldegruppen.forEach(function callback (currentValue, _index, array) {
-      if (currentValue.name !== '' && currentValue.topic !== '') {
+      if (currentValue.name !== '') {
         this.homeNodeMg.advertise(currentValue.key, currentValue.name, 'boolean', null, null)
       }
     }, this)
 
     config.Telenot.Meldebereiche.forEach(function callback (currentValue, _index, array) {
-      if (currentValue.name !== '' && currentValue.topic !== '') {
+      if (currentValue.name !== '') {
         this.homeNodeMb.advertise(currentValue.key, currentValue.name, 'boolean', null, null)
       }
     }, this)
