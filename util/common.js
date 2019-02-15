@@ -1,7 +1,8 @@
 module.exports = {
   reverseANumber(n) {
-    n += '';
-    return n.split('').reverse().join('');
+    let result = n;
+    result += '';
+    return result.split('').reverse().join('');
   },
 
   mapBinaryValue(binary) {
