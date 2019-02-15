@@ -1,13 +1,12 @@
-'use strict'
-const config = require('./../config/config')
-const winston = require('winston')
+const winston = require('winston');
+const config = require('./../config/config');
 
-let loglevel = config.LogLevel
+let loglevel = config.LogLevel;
 
 // get log level from environment variable (fallback config file)
-const logLevels = ['error', 'warn', 'info', 'verbose', 'debug', 'silly']
+const logLevels = ['error', 'warn', 'info', 'verbose', 'debug', 'silly'];
 if (!logLevels.includes(loglevel)) {
-  loglevel = 'info'
+  loglevel = 'info';
 }
 
 module.exports = {
@@ -20,24 +19,20 @@ module.exports = {
       // - Write all logs error (and below) to `error.log`.
       //
       new winston.transports.File({ filename: 'error.log', level: 'error' }),
-      new winston.transports.File({ filename: 'combined.log' })
-    ]
+      new winston.transports.File({ filename: 'combined.log' }),
+    ],
   }),
   //
   // If we're not in production then log to the `console` with the format:
   // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
   //
-  setLogLevelProd: function (logger) {
+  setLogLevelProd(logger) {
     if (process.env.NODE_ENV !== 'production') {
-      const combinedLogs = logger.transports.find(transport => {
-        return transport.filename === 'combined.log'
-      })
-
-      logger.remove(combinedLogs)
-
+      const combinedLogs = logger.transports.find(transport => transport.filename === 'combined.log');
+      logger.remove(combinedLogs);
       logger.add(new winston.transports.Console({
-        format: winston.format.simple()
-      }))
+        format: winston.format.simple(),
+      }));
     }
-  }
-}
+  },
+};

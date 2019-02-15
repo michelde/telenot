@@ -21,10 +21,12 @@
     "hex-to-binary": "^1.0.1",
     "lodash": "^4.17.11",
     "mqtt": "^2.18.8",
-    "standard": "^11.0.1",
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "eslint": "^5.14.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "log": "^1.4.0",
     "nodemon": "^1.18.7"
   }
