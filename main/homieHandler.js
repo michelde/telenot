@@ -1,32 +1,30 @@
-'use strict'
-
-var HomieDevice = require('../lib/homieDevice')
-const config = require('../config/config')
+const HomieDevice = require('../lib/homieDevice');
+const config = require('../config/config');
 
 module.exports = class MqttHandler {
-  constructor (logger) {
-    this.logger = logger
+  constructor(logger) {
+    this.logger = logger;
 
     // setup new Homie Device
-    this.homieDevice = new HomieDevice(config.Homie)
-    this.homeNodeMg = this.homieDevice.node('MG', 'Meldegruppe', 'Meldegruppe')
-    this.homeNodeMb = this.homieDevice.node('MB', 'Meldebereich', 'Meldebereich')
+    this.homieDevice = new HomieDevice(config.Homie);
+    this.homeNodeMg = this.homieDevice.node('MG', 'Meldegruppe', 'Meldegruppe');
+    this.homeNodeMb = this.homieDevice.node('MB', 'Meldebereich', 'Meldebereich');
 
     // add properties
-    config.Telenot.Meldegruppen.forEach(function callback (currentValue, _index, array) {
+    config.Telenot.Meldegruppen.forEach((currentValue) => {
       if (currentValue.name !== '') {
-        this.homeNodeMg.advertise(currentValue.key, currentValue.name, 'boolean', null, null)
+        this.homeNodeMg.advertise(currentValue.key, currentValue.name, 'boolean', null, null);
       }
-    }, this)
+    }, this);
 
-    config.Telenot.Meldebereiche.forEach(function callback (currentValue, _index, array) {
+    config.Telenot.Meldebereiche.forEach((currentValue) => {
       if (currentValue.name !== '') {
-        this.homeNodeMb.advertise(currentValue.key, currentValue.name, 'boolean', null, null)
+        this.homeNodeMb.advertise(currentValue.key, currentValue.name, 'boolean', null, null);
       }
-    }, this)
+    });
 
-    this.homieDevice.setup()
+    this.homieDevice.setup();
 
-    return this
+    return this;
   }
-}
+};

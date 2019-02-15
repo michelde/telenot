@@ -1,21 +1,20 @@
-'use strict'
-const SocketHandler = require('./main/socketHandler')
-const HomieHandler = require('./main/homieHandler')
-const Telenot = require('./main/telenot')
-const logHandler = require('./util/logger')
+const SocketHandler = require('./main/socketHandler');
+const HomieHandler = require('./main/homieHandler');
+const Telenot = require('./main/telenot');
+const logHandler = require('./util/logger');
 
-var logger
+let logger;
 
-function init () {
-  logger = logHandler.logger
-  logHandler.setLogLevelProd(logger)
+function init() {
+  ({ logger } = logHandler.logger);
+  logHandler.setLogLevelProd(logger);
 }
 
-function run () {
-  const homieMqtt = new HomieHandler(logger)
-  const telenot = new Telenot(logger, homieMqtt)
-  const socketConnection = new SocketHandler(logger, telenot)
+function run() {
+  const homieMqtt = new HomieHandler(logger);
+  const telenot = new Telenot(logger, homieMqtt);
+  const socketConnection = new SocketHandler(logger, telenot);
 }
 
-init()
-run()
+init();
+run();

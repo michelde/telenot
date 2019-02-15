@@ -3,12 +3,12 @@ const config = {
   Connection: {
     mqttConfig: {
       host: process.env.MQTTHOST,
-      port: process.env.MQTTPORT
+      port: process.env.MQTTPORT,
     },
     telnetConfig: {
       host: process.env.TELNETHOST,
-      port: process.env.TELNETPORT
-    }
+      port: process.env.TELNETPORT,
+    },
   },
   Homie: {
     name: 'Telenot Device',
@@ -17,8 +17,8 @@ const config = {
       host: process.env.MQTTHOST,
       port: process.env.MQTTPORT,
       base_topic: 'homie/',
-      auth: false
-    }
+      auth: false,
+    },
   },
   Telenot: {
     Meldebereiche: [
@@ -45,7 +45,7 @@ const config = {
       { key: 21, name: '', value: null },
       { key: 22, name: '', value: null },
       { key: 23, name: '', value: null },
-      { key: 24, name: '', value: null }
+      { key: 24, name: '', value: null },
     ],
     Meldegruppen: [
       { key: 1, name: 'Fenster KG HWR', value: null },
@@ -63,9 +63,9 @@ const config = {
       { key: 13, name: 'Fenster EG WZ Ost', value: null },
       { key: 14, name: 'Sabotage Türklingel', value: null },
       { key: 15, name: '', value: null },
-      { key: 16, name: '', value: null }
-    ]
-  }
-}
+      { key: 16, name: '', value: null },
+    ],
+  },
+};
 
-module.exports = config
+module.exports = config;
