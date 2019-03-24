@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  telenot:
+    container_name: telenot
+    restart: always
+    environment:
+      MQTTHOST: ${MQTT_HOST}
+      MQTTPORT: ${MQTT_PORT}
+      TELNETHOST: ${TELENOT_HOST}
+      TELNETPORT: ${TELENOT_PORT}
+    build:
+      context: .
+      dockerfile: Dockerfile
+

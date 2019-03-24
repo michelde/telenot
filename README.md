@@ -8,6 +8,8 @@ To recognize the data there is a REGEG pattern for different firmwares. For 25.5
 -- adjust source code to eslint and airbnb style guide; 
 -- Changed REGEG for firmware 33.68.
 -- added new branch for homie and converted master into plain mqtt
+- 2019-03-24:
+-- added docker-compose.yaml file. You can now start the container (including the build process) using `docker-compose up -d --build` which makes setup easier. For setting up the env-variables, create a `.env` file and add the parameters.
 
 ## Idea
 As the Telenot KNX Gateway is quite expensive, I started research for another solution. Some people already got a solution working for Loxone, which I took as a reference. Then I started to implement a solution in Python which was working but caused high CPU usage running as a docker container (see python branch). So I decided to implement it in Javascript using node.js. This is my first Javascript project so it might not follow best practices. I'm welcome for tips / best-practices.
