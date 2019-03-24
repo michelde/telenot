@@ -4,6 +4,7 @@ const config = require('./../config/config');
 module.exports = class MqttHandler {
   constructor(logger) {
     this.logger = logger;
+    this.logger.debug(`MQTT Host: ${config.Connection.mqttConfig.host}`);
     this.mqttClient = mqtt.connect(config.Connection.mqttConfig.host);
 
     this.mqttClient.on('connect', () => {

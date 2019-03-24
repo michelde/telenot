@@ -6,7 +6,7 @@ const logHandler = require('./util/logger');
 let logger;
 
 function init() {
-  ({ logger } = logHandler.logger);
+  logger = logHandler.logger;
   logHandler.setLogLevelProd(logger);
 }
 
