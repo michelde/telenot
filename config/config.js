@@ -5,6 +5,8 @@ const config = {
     mqttConfig: {
       host: process.env.MQTTHOST,
       port: process.env.MQTTPORT,
+      username: process.env.MQTTUSER,
+      password: process.env.MQTTPASSWORD,
     },
     telnetConfig: {
       host: process.env.TELNETHOST,

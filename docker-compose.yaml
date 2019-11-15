@@ -6,6 +6,8 @@ services:
     environment:
       MQTTHOST: ${MQTT_HOST}
       MQTTPORT: ${MQTT_PORT}
+      MQTTUSER: ${MQTT_USER}
+      MQTTPASSWORD: ${MQTT_PASSWORD}
       TELNETHOST: ${TELENOT_HOST}
       TELNETPORT: ${TELENOT_PORT}
     build:
