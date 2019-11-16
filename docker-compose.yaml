@@ -10,6 +10,7 @@ services:
       MQTTPASSWORD: ${MQTT_PASSWORD}
       TELNETHOST: ${TELENOT_HOST}
       TELNETPORT: ${TELENOT_PORT}
+      DISCOVER: ${DISCOVER}
     build:
       context: .
       dockerfile: Dockerfile
