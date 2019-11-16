@@ -5,9 +5,12 @@ module.exports = {
     return result.split('').reverse().join('');
   },
 
-  mapBinaryValue(binary) {
+  mapBinaryValue(binary, inverted) {
+    let compareValue = 1;
+    if (inverted) compareValue = 0;
+
     // eslint-disable-next-line radix
-    if (parseInt(binary) === 0) return 'ON';
+    if (parseInt(binary) === compareValue) return 'ON';
     return 'OFF';
   },
 };

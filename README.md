@@ -4,12 +4,17 @@ To recognize the data there is a REGEG pattern for different firmwares. For 25.5
 
 ## Updates
 - 2018-12-26: added [Homie convention implementation](https://homieiot.github.io/) to detect the mqtt-topics automatically by [openhab using add-on](https://www.openhab.org/addons/bindings/mqtt.generic/)
-- 2019-02-15: 
--- adjust source code to eslint and airbnb style guide; 
--- Changed REGEG for firmware 33.68.
--- added new branch for homie and converted master into plain mqtt
+- 2019-02-15:
+  - adjust source code to eslint and airbnb style guide;
+  - Changed REGEG for firmware 33.68.
+  - added new branch for homie and converted master into plain mqtt
 - 2019-03-24:
--- added docker-compose.yaml file. You can now start the container (including the build process) using `docker-compose up -d --build` which makes setup easier. For setting up the env-variables, create a `.env` file and add the parameters.
+  - added docker-compose.yaml file. You can now start the container (including the build process) using `docker-compose up -d --build` which makes setup easier. For setting up the env-variables, create a `.env` file and add the parameters.
+- 2019-11-16:
+  - added posibility to connect to MQTT broker with username and password. You need to a provice the environment variables MQTTUSER / MQTTPASSWORD.
+  - added posibility to discover the bit positions for the changes. You need to set the env-variable DISCOVER = true and LOG_LEVEL should be DEBUG.
+  - refactoring for decode method.
+  - in the config.js file you need to provide the bit position for the sensor (use DISCOVERY to find the bit position)
 
 ## Idea
 As the Telenot KNX Gateway is quite expensive, I started research for another solution. Some people already got a solution working for Loxone, which I took as a reference. Then I started to implement a solution in Python which was working but caused high CPU usage running as a docker container (see python branch). So I decided to implement it in Javascript using node.js. This is my first Javascript project so it might not follow best practices. I'm welcome for tips / best-practices.
@@ -25,9 +30,12 @@ You can pass some config variables also as environment variables:
 |----------------|-----------------------------------------|
 |MQTTHOST        | name or ip for the mqtt broker          |
 |MQTTPORT        | port for the mqtt broker                |
+|MQTTUSER        | user for mqtt broker                    |
+|MQTTPASSWORD    | password for the mqtt user              |
 |TELNETHOST      | name or ip for the socket adapter       |
 |TELNETPORT      | port for the socket adapter             |
 |LOG_LEVEL       | Posible log levels are ["error", "warn", "info", "verbose", "debug", "silly"] |
+|DISCOVER        | Discover bit positions on change        |
 
 This will result in:
 ```
@@ -36,6 +44,8 @@ docker run --name telenot-nodejs \
   -d \
   -e MQTTHOST="mqtt://host.name" \
   -e MQTTPORT="1883" \
+  -e MQTTUSER="mqtt" \
+  -e MQTTPASSWORD="secret"
   -e TELNETHOST="192.168.1.22" \
   -e TELNETPORT="1234" \
   michelmu/telenot-nodejs

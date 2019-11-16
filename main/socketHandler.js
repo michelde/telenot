@@ -31,13 +31,10 @@ module.exports = class SocketHandler {
   }
 
   handleData(data) {
-    // this.bytesReceived += data.length
-    this.logger.log('debug', `Received bytes: ${data.length}`);
-    this.logger.log('debug', `Received data: ${data.toString('hex')}`);
     let sendBack = null;
     sendBack = this.parseData(data.toString('hex'));
     if (sendBack !== null) {
-      this.logger.log('debug', `reply to socket: ${sendBack}`);
+      // this.logger.log('debug', `reply to socket: ${sendBack}`);
       this.client.write(sendBack);
     }
   }
@@ -55,24 +52,23 @@ module.exports = class SocketHandler {
     let sendBack = null;
 
     if (hexStr === SEND_NORM) {
-      this.logger.log('debug', 'Send CONF_ACK for SEND_NORM');
+      // this.logger.log('debug', 'Send CONF_ACK for SEND_NORM');
       sendBack = CONF_ACK;
     } else if (SEND_NORM_REGEX.test(hexStr)) {
-      this.logger.log('debug', 'Send CONF_ACK for SEND_NORM_REGEX');
+      // this.logger.log('debug', 'Send CONF_ACK for SEND_NORM_REGEX');
       sendBack = CONF_ACK;
     } else if (REGEX_MELDEBEREICHE.test(hexStr)) {
-      this.logger.log('debug', `Meldebereiche ${hexStr}`);
-      this.telenot.decodeMeldebereiche(hexStr);
+      // this.logger.log('debug', `Meldebereiche ${hexStr}`);
+      this.telenot.decode(hexStr, config.Telenot.MELDEBEREICHE.name);
       sendBack = CONF_ACK;
     } else if (REGEX_MELDEGRUPPEN.test(hexStr)) {
-      this.logger.debug(`Meldegruppen ${hexStr}`);
-      this.telenot.decodeMeldegruppen(hexStr);
+      this.telenot.decode(hexStr, config.Telenot.MELDEGRUPPEN.name);
       sendBack = CONF_ACK;
     } else if (SEND_16.test(hexStr)) {
-      this.logger.log('debug', 'Send CONF_ACK for $16');
       sendBack = CONF_ACK;
     } else {
-      this.logger.log('debug', `unknown string: ${hexStr}`);
+      // this.logger.log('debug', `unknown string: ${hexStr}`);
+      // this.telenot.discover(hexStr, 'Unknown');
     }
     return sendBack;
   }
