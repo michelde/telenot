@@ -18,6 +18,7 @@ const config = {
       name: 'MELDEBEREICHE',
       positions: [
         { position: 586, name: 'Fenster Bad Eltern', topic: 'openhab/alarm/mb/fenster_bad_eltern', inverted: true },
+        { position: 588, name: 'Fenster Isabel', topic: 'openhab/alarm/mb/fenster_isabel', inverted: true },
         { position: 592, name: 'Fenster EG Arbeiten', topic: 'openhab/alarm/mb/fenster_eg_arbeiten', inverted: true },
         { position: 593, name: 'Fenster EG WC', topic: 'openhab/alarm/mb/fenster_eg_wc', inverted: true },
         { position: 594, name: 'Tuer EG Flur', topic: 'openhab/alarm/mb/tuer_eg_flur', inverted: true },
@@ -44,6 +45,7 @@ const config = {
       name: 'MELDEGRUPPEN',
       positions: [
         { position: 752, name: 'Fenster Bad Eltern', topic: 'openhab/alarm/mg/fenster_bad_eltern', inverted: true },
+        { position: 753, name: 'Fenster Isabel', topic: 'openhab/alarm/mg/fenster_isabel', inverted: true },
         { position: 1112, name: 'Tuer EG Wohnzimmer', topic: 'openhab/alarm/mg/tuer_eg_wohnzimmer', inverted: true },
         { position: 1113, name: 'Fenster EG WZ West', topic: 'openhab/alarm/mg/fenster_eg_wz_west', inverted: true },
         { position: 1114, name: 'Fenster EG Arbeiten', topic: 'openhab/alarm/mg/fenster_eg_arbeiten', inverted: true },
