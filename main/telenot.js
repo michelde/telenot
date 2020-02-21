@@ -25,7 +25,9 @@ module.exports = class Telenot {
           const property = config.Telenot[contentName].positions.find(element => element.position === i);
           // if discover is turned on, send position
           if (process.env.DISCOVER === 'true') {
-            this.logger.debug(`${contentName} - Position ${i} (${binaryStr.length - i}): Old:  ${this.binaryDiscoverPrevious[contentName].substr(i, 1)} - New ${binaryStr.substr(i, 1)}`);
+            if (property === undefined || property.name === '') {
+              this.logger.debug(`${contentName} - Position ${i} (${binaryStr.length - i}): Old:  ${this.binaryDiscoverPrevious[contentName].substr(i, 1)} - New ${binaryStr.substr(i, 1)}`);
+            }
           // check if there is a property defined for this position
           } else if (property !== undefined && property.name !== '') {
             if (this.mqttClient.connected) {
