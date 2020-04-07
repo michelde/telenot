@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "hex-to-binary": "^1.0.1",
     "lodash": "^4.17.15",
-    "mqtt": "^2.18.8",
+    "mqtt": "^3.0.0",
     "mqtt-packet": "^6.3.2",
     "winston": "^3.2.1"
   },
