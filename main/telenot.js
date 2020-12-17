@@ -79,7 +79,7 @@ module.exports = class Telenot {
                 property.topic,
                 utilFunc.mapBinaryValue(bitValue, property.inverted),
               );
-              this.logger.verbose(`Publish initial state for ${contentName}: ${property.name} value: ${utilFunc.mapBinaryValue(bitValue)} at position ${seachIndex}`);
+              this.logger.verbose(`Publish initial state for ${contentName}: ${property.name} value: ${utilFunc.mapBinaryValue(bitValue)}`);
             } else {
               this.logger.debug(`Cant publish state as Mqtt not connected: ${property.topic}`);
             }
@@ -117,7 +117,7 @@ module.exports = class Telenot {
                     property.topic,
                     utilFunc.mapBinaryValue(bitValue, property.inverted),
                   );
-                  this.logger.verbose(`Publish change for ${contentName}: ${property.name} value: ${utilFunc.mapBinaryValue(bitValue)} at position ${seachIndex}`);
+                  this.logger.verbose(`Publish change for ${contentName}: ${property.name} value: ${utilFunc.mapBinaryValue(bitValue)}`);
                 } else {
                   this.logger.debug(`Cant publish state as Mqtt not connected: ${property.topic}`);
                 }

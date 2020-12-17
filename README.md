@@ -15,6 +15,10 @@ To recognize the data there is a REGEG pattern for different firmwares. For 25.5
   - added posibility to discover the bit positions for the changes. You need to set the env-variable DISCOVER = true and LOG_LEVEL should be DEBUG.
   - refactoring for decode method.
   - in the config.js file you need to provide the bit position for the sensor (use DISCOVERY to find the bit position)
+- 2020-12-17:
+  - added new option to get current states. This is helpful if you connect to the mqtt broker but have missed the previous changes. E.g. when starting Home Assistant you can get all states and changes by requesting them with the state topic defined at `config.js` file
+  - change identification of entity by using the hex position which is also shown in the Complex X program. This reduces the need for discovery of items.
+  - refactor decode method to match new requirements with hex adress
 
 ## Idea
 As the Telenot KNX Gateway is quite expensive, I started research for another solution. Some people already got a solution working for Loxone, which I took as a reference. Then I started to implement a solution in Python which was working but caused high CPU usage running as a docker container (see python branch). So I decided to implement it in Javascript using node.js. This is my first Javascript project so it might not follow best practices. I'm welcome for tips / best-practices.
@@ -36,6 +40,7 @@ You can pass some config variables also as environment variables:
 |TELNETPORT      | port for the socket adapter             |
 |LOG_LEVEL       | Posible log levels are ["error", "warn", "info", "verbose", "debug", "silly"] |
 |DISCOVER        | Discover bit positions on change        |
+|PUBLISHTOPIC    | The topic to get current item states    |
 
 This will result in:
 ```
@@ -48,6 +53,7 @@ docker run --name telenot-nodejs \
   -e MQTTPASSWORD="secret"
   -e TELNETHOST="192.168.1.22" \
   -e TELNETPORT="1234" \
+  -e PUBLISHTOPIC="telenot/alarm/publish"
   michelmu/telenot-nodejs
 ```
 
