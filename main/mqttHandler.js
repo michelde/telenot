@@ -13,6 +13,13 @@ module.exports = class MqttHandler {
 
     this.mqttClient.on('connect', () => {
       this.logger.info('MQTT Connected');
+      // subscribe to topic for republish all states
+      this.mqttClient.subscribe(config.Connection.mqttConfig.publishTopic, (err) => {
+        if (!err) {
+          // publish all current states
+          // client.publish('presence', 'Hello mqtt')
+        }
+      });
     });
     return this;
   }

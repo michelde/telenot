@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "NODE_ENV=development && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "NODE_ENV=development && node --nolazy --inspect-brk=5858 index.js"
+    "debug": "NODE_ENV=development && node --nolazy index.js"
   },
   "repository": {
     "type": "git",
@@ -16,18 +16,18 @@
   "author": "Michel Munzert",
   "license": "ISC",
   "dependencies": {
-    "events": "^3.1.0",
+    "events": "^3.2.0",
     "express": "^4.17.1",
     "hex-to-binary": "^1.0.1",
     "lodash": "^4.17.19",
     "mqtt": "^3.0.0",
     "mqtt-packet": "^6.3.2",
-    "winston": "^3.2.1"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-import": "^2.22.0",
     "log": "^1.4.0",
     "nodemon": "^1.19.4"
   }
