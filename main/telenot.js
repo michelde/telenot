@@ -108,7 +108,7 @@ module.exports = class Telenot {
                 if (property === undefined || property.name === '') {
                   this.logger.debug(`${contentName} - Byte:${byteIndex} Bit:${bitIndex} Position:${seachIndex}: Hex: 0x${Number(seachIndex).toString(16)} Old: ${prevBit} - New ${bitValue}`);
                 } else {
-                  this.logger.debug(`${contentName} (${property.name}) -  Byte:${byteIndex} Bit:${bitIndex} Position:${seachIndex}: Hex: 0x${Number(seachIndex).toString(16)} Old: ${prevBit} - New ${bitValue}`);
+                  this.logger.debug(`${contentName} (${property.name}) -  Byte:${byteIndex} Bit:${bitIndex} Position:${seachIndex}: Hex: 0x${Number(seachIndex).toString(16)} Old: ${prevBit} - New ${bitValue} - INVERTED: ${property.inverted}`);
                 }
               // check if there is a property defined for this position
               } else if (property !== undefined && property.name !== '') {

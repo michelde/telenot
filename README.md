@@ -3,7 +3,6 @@ Program to read the states for several contacts from a Telenot alarm system usin
 To recognize the data there is a REGEG pattern for different firmwares. For 25.56 it's for *Meldebreiche* `/^(.*)6846466873023a24000500020(.*?)16$/` and for *Meldegruppen* `/^683e3e6873023224(.*?)16$/`. Lately I updated to Firmware 33.68 where the REGEG string has changed for *Meldebreiche* `/^(.*)6860606873025424000500020(.*?)16$/` and for *Meldegruppen* `/^689393687302872400000001(.*?)16$/`.
 
 ## Updates
-- 2018-12-26: added [Homie convention implementation](https://homieiot.github.io/) to detect the mqtt-topics automatically by [openhab using add-on](https://www.openhab.org/addons/bindings/mqtt.generic/)
 - 2019-02-15:
   - adjust source code to eslint and airbnb style guide;
   - Changed REGEG for firmware 33.68.
