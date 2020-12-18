@@ -6,8 +6,8 @@ module.exports = {
   },
 
   mapBinaryValue(binary, inverted) {
-    let compareValue = 0;
-    if (inverted) compareValue = 1;
+    let compareValue = 1;
+    if (inverted) compareValue = 0;
 
     // eslint-disable-next-line radix
     if (parseInt(binary) === compareValue) return 'ON';
