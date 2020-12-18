@@ -4,13 +4,14 @@ services:
     container_name: telenot
     restart: always
     environment:
-      MQTTHOST: ${MQTT_HOST}
-      MQTTPORT: ${MQTT_PORT}
-      MQTTUSER: ${MQTT_USER}
-      MQTTPASSWORD: ${MQTT_PASSWORD}
-      TELNETHOST: ${TELENOT_HOST}
-      TELNETPORT: ${TELENOT_PORT}
+      MQTTHOST: ${MQTTHOST}
+      MQTTPORT: ${MQTTPORT}
+      MQTTUSER: ${MQTTUSER}
+      MQTTPASSWORD: ${MQTTPASSWORD}
+      TELNETHOST: ${TELENOTHOST}
+      TELNETPORT: ${TELENOTPORT}
       DISCOVER: ${DISCOVER}
+      PUBLISHTOPIC: ${PUBLISHTOPIC}
     build:
       context: .
       dockerfile: Dockerfile
