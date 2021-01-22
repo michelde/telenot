@@ -61,6 +61,8 @@ docker run --name telenot-nodejs \
   michelmu/telenot-nodejs
 ```
 
+You can also get a prebuild docker image -- michelmu/telenot
+
 ## Hardware
 
 To get the serial data to the ethernet bus I use the following converter: USR-TCP232-302 Tiny - RS232 to Ethernet TCP-IP-Server-Modul (ordered at Amazon). In my program I can connect to this module using a socket connection and get the data.
