@@ -1,8 +1,10 @@
 # TELENOT_NODEJS
+
 Program to read the states for several contacts from a Telenot alarm system using the GMS-Protcol.
 To recognize the data there is a REGEG pattern for different firmwares. For 25.56 it's for *Meldebreiche* `/^(.*)6846466873023a24000500020(.*?)16$/` and for *Meldegruppen* `/^683e3e6873023224(.*?)16$/`. Lately I updated to Firmware 33.68 where the REGEG string has changed for *Meldebreiche* `/^(.*)6860606873025424000500020(.*?)16$/` and for *Meldegruppen* `/^689393687302872400000001(.*?)16$/`.
 
 ## Updates
+
 - 2019-02-15:
   - adjust source code to eslint and airbnb style guide;
   - Changed REGEG for firmware 33.68.
@@ -20,9 +22,11 @@ To recognize the data there is a REGEG pattern for different firmwares. For 25.5
   - refactor decode method to match new requirements with hex adress
 
 ## Idea
+
 As the Telenot KNX Gateway is quite expensive, I started research for another solution. Some people already got a solution working for Loxone, which I took as a reference. Then I started to implement a solution in Python which was working but caused high CPU usage running as a docker container (see python branch). So I decided to implement it in Javascript using node.js. This is my first Javascript project so it might not follow best practices. I'm welcome for tips / best-practices.
 
 ## Run
+
 You can either run the program using your local node.js version or run it using docker. For Docker you need to build the docker image using
 ```docker build -t michelmu/telenot-nodejs .```
 afterwards you can start the container using
@@ -42,7 +46,8 @@ You can pass some config variables also as environment variables:
 |PUBLISHTOPIC    | The topic to get current item states    |
 
 This will result in:
-```
+
+```bash
 docker run --name telenot-nodejs \
   --restart=always \
   -d \
@@ -57,7 +62,9 @@ docker run --name telenot-nodejs \
 ```
 
 ## Hardware
+
 To get the serial data to the ethernet bus I use the following converter: USR-TCP232-302 Tiny - RS232 to Ethernet TCP-IP-Server-Modul (ordered at Amazon). In my program I can connect to this module using a socket connection and get the data.
 
 ## To-Do's
+
 - setup Mocha as Test Framework

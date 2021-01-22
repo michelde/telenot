@@ -1,17 +1,18 @@
 /* eslint-disable object-curly-newline */
+/* eslint radix: ["error", "as-needed"] */
 const config = {
   LogLevel: process.env.LOG_LEVEL || 'info',
   Connection: {
     mqttConfig: {
       host: process.env.MQTTHOST,
-      port: process.env.MQTTPORT,
+      port: parseInt(process.env.MQTTPORT),
       username: process.env.MQTTUSER,
       password: process.env.MQTTPASSWORD,
       publishTopic: process.env.PUBLISHTOPIC || 'telenot/alarm/publish',
     },
     telnetConfig: {
       host: process.env.TELNETHOST,
-      port: process.env.TELNETPORT,
+      port: parseInt(process.env.TELNETPORT),
     },
   },
   Telenot: {
