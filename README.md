@@ -41,7 +41,7 @@ You can pass some config variables also as environment variables:
 |MQTTPASSWORD    | password for the mqtt user              |
 |TELNETHOST      | name or ip for the socket adapter       |
 |TELNETPORT      | port for the socket adapter             |
-|LOG_LEVEL       | Posible log levels are ["error", "warn", "info", "verbose", "debug", "silly"] |
+|LOGLEVEL        | Posible log levels are ["error", "warn", "info", "verbose", "debug", "silly"] |
 |DISCOVER        | Discover bit positions on change        |
 |PUBLISHTOPIC    | The topic to get current item states    |
 

@@ -1,7 +1,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint radix: ["error", "as-needed"] */
 const config = {
-  LogLevel: process.env.LOG_LEVEL || 'info',
+  LogLevel: process.env.LOGLEVEL || 'info',
   Connection: {
     mqttConfig: {
       host: process.env.MQTTHOST,
@@ -105,3 +105,4 @@ const config = {
 };
 
 module.exports = config;
+
