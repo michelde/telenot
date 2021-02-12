@@ -34,7 +34,6 @@ const config = {
       name: 'MELDEBEREICHE',
       offset: 10,
       positions: [
-        // { hex: 586, name: 'Fenster Bad Eltern', topic: 'telenot/alarm/mb/fenster_bad_eltern' },
         { hex: 0x94, name: 'Fenster Isabel', topic: 'telenot/alarm/mb/fenster_isabel', inverted: true },
         { hex: 0x80, name: 'Fenster KG HWR', topic: 'telenot/alarm/mb/fenster_kg_hwr', inverted: true },
         { hex: 0x81, name: 'Fenster KG Fitness', topic: 'telenot/alarm/mb/fenster_kg_fitness', inverted: true },
@@ -105,4 +104,3 @@ const config = {
 };
 
 module.exports = config;
-
