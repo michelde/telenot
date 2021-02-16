@@ -8,6 +8,9 @@ module.exports = class MqttHandler {
     this.options = {
       username: config.Connection.mqttConfig.username || '',
       password: config.Connection.mqttConfig.password || '',
+      keepalive: 60,
+      clientId: 'telenotClient',
+      connectTimeout: 30000,
     };
     this.mqttClient = mqtt.connect(config.Connection.mqttConfig.host, this.options);
 
