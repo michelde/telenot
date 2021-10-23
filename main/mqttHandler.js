@@ -21,6 +21,8 @@ module.exports = class MqttHandler {
         if (!err) {
           // publish all current states
           // client.publish('presence', 'Hello mqtt')
+        } else if (err) {
+          this.logger.error(JSON.stringify(err));
         }
       });
     });

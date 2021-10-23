@@ -12,7 +12,8 @@ module.exports = class Telenot {
         // ackowledge
       }
     });
-    this.mqttClient.on('message', () => {
+    this.mqttClient.on('message', (msg) => {
+      this.logger.info(`Received message on topic ${msg} to send current states`);
       // got message to send all states
       this.publish(config.Telenot.MELDEBEREICHE.name);
       this.publish(config.Telenot.MELDEGRUPPEN.name);
