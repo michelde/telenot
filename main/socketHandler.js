@@ -10,12 +10,21 @@ const REGEX_SICHERUNGSBEREICH2 = /^682c2c687302050200053(.*?)16$/;
 const SEND_16 = /(.*)16$/;
 const CONF_ACK = Buffer.from([0x68, 0x02, 0x02, 0x68, 0x00, 0x02, 0x02, 0x16]);
 
+const timeout = 15000;
+
 module.exports = class SocketHandler {
   constructor(logger, telenot) {
     this.logger = logger;
     this.telenot = telenot;
     this.client = new net.Socket();
 
+    this.makeConnection();
+
+    return this;
+  }
+
+  makeConnection() {
+    this.logger.debug('Makeconnection...');
     this.client.connect(
       config.Connection.telnetConfig.port,
       config.Connection.telnetConfig.host, () => {
@@ -30,27 +39,36 @@ module.exports = class SocketHandler {
       this.handleError(error);
     });
     this.client.on('close', () => {
+      this.client.removeAllListeners();
       this.handleClose();
     });
-    return this;
+    this.client.setTimeout(timeout);
+    this.client.on('timeout', () => {
+        this.client.setTimeout(0);
+        this.client.end();
+    });
   }
 
   handleData(data) {
     let sendBack = null;
+    this.client.setTimeout(0);
     // sthis.parseDataNew(data);
     sendBack = this.parseData(data.toString('hex'), data);
     if (sendBack !== null) {
       this.client.write(sendBack);
     }
+    this.client.setTimeout(timeout);
   }
 
   handleError(error) {
+    this.logger.info('Connection error');
     this.logger.error(error);
-    this.client.destroy();
   }
 
   handleClose() {
     this.logger.info('Connection closed');
+    this.client.destroy();
+	setTimeout(this.makeConnection.bind(this), timeout);
   }
 
   parseData(hexStr, hex) {
