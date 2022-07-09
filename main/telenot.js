@@ -44,6 +44,7 @@ module.exports = class Telenot {
             this.mqttClient.publish(
               property.topic,
               utilFunc.mapBinaryValue(bitValue, property.inverted),
+			  { retain: true }
             );
             this.logger.verbose(`Publish state for ${contentName}: ${property.name} value: ${utilFunc.mapBinaryValue(bitValue)} at position ${seachIndex}`);
           } else {
@@ -79,6 +80,7 @@ module.exports = class Telenot {
               this.mqttClient.publish(
                 property.topic,
                 utilFunc.mapBinaryValue(bitValue, property.inverted),
+				{ retain: true }
               );
               this.logger.verbose(`Publish initial state for ${contentName}: ${property.name} value: ${utilFunc.mapBinaryValue(bitValue)}`);
             } else {
@@ -117,6 +119,7 @@ module.exports = class Telenot {
                   this.mqttClient.publish(
                     property.topic,
                     utilFunc.mapBinaryValue(bitValue, property.inverted),
+					{ retain: true }
                   );
                   this.logger.verbose(`Publish change for ${contentName}: ${property.name} value: ${utilFunc.mapBinaryValue(bitValue)}`);
                 } else {
