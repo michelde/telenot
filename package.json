@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "hex-to-binary": "^1.0.1",
     "lodash": "^4.17.21",
-    "mqtt": "^3.0.0",
+    "mqtt": "^4.3.7",
     "mqtt-packet": "^6.7.0",
     "winston": "^3.3.3"
   },
@@ -29,6 +29,6 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.22.1",
     "log": "^1.4.0",
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.20"
   }
 }
