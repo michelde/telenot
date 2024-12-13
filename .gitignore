@@ -65,3 +65,4 @@ typings/
 
 #Mac Files
 .DS_Store
+@eaDir/.env@SynoEAStream
