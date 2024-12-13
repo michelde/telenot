@@ -4,7 +4,7 @@ services:
     container_name: telenot
     restart: always
     environment:
-      MQTTHOST: ${MQTTHOST}
+      MQTTHOST: "mqtt://mqtt.waldsteg.home"
       MQTTPORT: ${MQTTPORT}
       MQTTUSER: ${MQTTUSER}
       MQTTPASSWORD: ${MQTTPASSWORD}
@@ -15,4 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
+networks:
+  default:
+    name: docker_default
+    external: true
