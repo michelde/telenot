@@ -1,3 +1,5 @@
+# 2026-11-18 Archived - I recomment to use any other new implementation, which are supporting auto-discovery and well tested.
+
 # TELENOT_NODEJS
 
 Program to read the states for several contacts from a Telenot alarm system using the GMS-Protcol.
